@@ -26,7 +26,7 @@
 ## 👥 Team Members:
 
 - **[Lee Chun Kai](https://github.com/BananaKing123)**
-- **[Yap Zhe Xuana](https://github.com/yapzhexuan)**
+- **[Yap Zhe Xuan](https://github.com/yapzhexuan)**
 - **Chan Zhi Lin**
 
 ---
