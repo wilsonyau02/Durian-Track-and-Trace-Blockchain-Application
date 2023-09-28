@@ -23,12 +23,6 @@
 
 ---
 
-## 🌍 How to Use:
-
-(You can add a short guide here on how to set up, deploy, or use your application.)
-
----
-
 ## 👥 Team Members:
 
 - **[Lee Chun Kai](https://github.com/BananaKing123)**
