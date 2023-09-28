@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <script src="../action.js"></script>
+    <meta charset="utf-8" />
+    <title>Farmer - Record Harvest Durian</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Style for the label */
+
+
+/* Style for the select element */
+
+
+        </style>
+</head>
+
+<body onload="accessToMetamask(); accessToContract().then(() => showFarmList());">
+    <header>
+        <a href="../farmer.html">
+            <div id="logo_container">
+
+                <div id="logo">
+                    <img src="../image/durian_logo.png" alt="logo">
+                </div>
+
+                <div id="logo_text">DTTBA</div>
+            </div>
+        </a>
+        <nav class="navbar" id="navbar">
+            <ul>
+                <li><a href="recordHarvestDurian.html" style="transform: scale(1.2);">Record Harvest Durian</a></li>
+                <li><a href="farmerRecord.html">View Record</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="farmerAddingContainer" name="farmFormContainer">
+
+        <div id="farmerAddingTitle">
+            <h2>Record Harvest Durian</h2>
+        </div>
+
+
+        <form id="farmerAddingForm" name="durianForm">
+            <div id="add_field_details">
+
+                <div class="add_field">
+                    <label for="harvest_date">Date</label>
+                    <input type="date" name="durianHarvestDate" id="durianHarvestDate" class="cinput" autocomplete="off"
+                        required onfocus="placeholder='Enter Date Here'" onblur="placeholder=''" />
+                </div>
+
+                <div class="add_field">
+                    <label for="durian_type">Type</label>
+                    <select name="cinput" id="durianType">
+                        <option value="Black Pearl">Black Pearl</option>
+                        <option value="Black Thorn">Black Thorn</option>
+                        <option value="D101">D101</option>
+                        <option value="D13">D13</option>
+                        <option value="D24">D24</option>
+                        <option value="Golden Phoenix">Golden Phoenix</option>
+                        <option value="IOI">IOI</option>
+                        <option value="Kampung">Kampung</option>
+                        <option value="Lao Tai Po">Lao Tai Po</option>
+                        <option value="Musang King">Musang King</option>
+                        <option value="Red Prawn">Red Prawn</option>
+                        <option value="Tekka">Tekka</option>
+                        <option value="Tupai King">Tupai King</option>
+                        <option value="XO">XO</option>
+                      </select>
+                    <!-- <input type="text" name="durianType" id="durianType" class="cinput" autocomplete="off" required
+                        onfocus="placeholder='Enter Type Here'" onblur="placeholder=''" /> -->
+                </div>
+
+                <div class="add_field">
+                    <label for="durian_weight">Weight (Kg)</label>
+                    <input type="text" name="durianWeight" id="durianWeight" class="cinput" autocomplete="off" required
+                        onfocus="placeholder='Enter Weight Here'" onblur="placeholder=''" />
+                </div>
+
+                <div class="add_field">
+                    <label for="farm_ID">Farm ID</label>
+                    <!-- <input type="text" name="durianWeight" id="farmID" class="cinput" autocomplete="off" required
+                        onfocus="placeholder='Enter Farm ID Here'" onblur="placeholder=''" /> -->
+                    <div id="farmidField">
+
+                    </div>
+                </div>
+
+                <div id="farmer_function_buttons">
+                    <div class="add_field_button">
+                        <button type="button" value="Add" class="cbutton" id="cbutton" onclick="recordHarvestDurian()">Record</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+
+</body>
+<script>
+   
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        document.getElementById("cbutton").disabled = true;
+    });
+
+    ["durianHarvestDate", "durianType", "durianWeight"].forEach(field => document.getElementById(field).addEventListener("input", validateFields5));
+
+</script>
+
+</html>
+
+<!--  hahaha-->

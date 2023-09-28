@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <script src="../action.js"></script>
+    <meta charset="utf-8" />
+    <title>Owner - Edit Farm</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body onload="accessToMetamask(); accessToContract()">
+    <header>
+        <a href="../owner.html">
+            <div id="logo_container">
+
+                <div id="logo">
+                    <img src="../image/durian_logo.png" alt="logo">
+                </div>
+
+                <div id="logo_text">DTTBA</div>
+            </div>
+        </a>
+        <nav class="navbar" id="navbar">
+            <ul>
+                <li><a href="addFarmer.html">Add Farmer</a></li>
+                <li><a href="addDistributor.html">Add Distributor</a></li>
+                <li><a href="addRetailer.html">Add Retailer</a></li>
+                <li><a href="addFarm.html">Add Farm</a></li>
+                <li><a href="editFarm.html" style="transform: scale(1.2);">Edit Farm</a></li>
+                <li><a href="deactivateUser.html">Deactivate User</a></li>
+                <li><a href="ownerRecord.html">View Record</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="ownerAddingContainer" name="farmFormContainer">
+
+        <div id="ownerAddingTitle">
+            <h2>Edit Farm</h2>
+        </div>
+
+
+        <form id="ownerAddingForm" name="farmForm">
+            <div id="add_field_details">
+
+                <div class="add_field">
+                    <label for="farm_id">Farm ID</label>
+                    <input type="text" name="farmId" id="farmId" class="cinput" autocomplete="off" required
+                        onfocus="placeholder='Enter Farm ID Here'" onblur="placeholder=''" />
+                </div>
+
+                <div class="add_field">
+                    <label for="farm_name">Name</label>
+                    <input type="text" name="farmName" id="farmName" class="cinput" autocomplete="off" required
+                        onfocus="placeholder='Enter Name Here'" onblur="placeholder=''" />
+                </div>
+
+                <div class="add_field">
+                    <label for="farm_location">Location</label>
+                    <input type="text" name="farmLocation" id="farmLocation" class="cinput" autocomplete="off" required
+                        onfocus="placeholder='Enter Location Here'" onblur="placeholder=''" />
+                </div>
+
+                <div class="add_field">
+                    <label for="farm_size">Size (Acres)</label>
+                    <input type="text" name="farmSize" id="farmSize" class="cinput" autocomplete="off" required
+                        onfocus="placeholder='Enter Size Here'" onblur="placeholder=''" />
+                </div>
+
+                <div class="add_field">
+                    <label for="farm_size">Number of Workers</label>
+                    <input type="number" name="farmNumOfWorkers" id="farmNumOfWorkers" class="cinput" autocomplete="off"
+                        required onfocus="placeholder='Enter Number of Worker Here'" onblur="placeholder=''" />
+                </div>
+
+                <div id="owner_function_buttons">
+                    <div class="add_field_button add_field_button-disabled">
+                        <button type="button" value="Add" class="cbutton" id="cbutton" onclick="editFarm()">Edit</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    function validateFields13() {
+      var farmId = document.getElementById("farmId").value;
+      var farmName = document.getElementById("farmName").value;
+      var farmLocation = document.getElementById("farmLocation").value;
+      var farmSize = document.getElementById("farmSize").value;
+      var farmNumOfWorkers = document.getElementById("farmNumOfWorkers").value;
+    
+      if (farmId === "" || farmName === "" || farmLocation === "" 
+      || farmSize === "" || farmNumOfWorkers === "") {
+        document.getElementById("cbutton").disabled = true;
+      } else {
+        document.getElementById("cbutton").disabled = false;
+      } 
+    }
+    
+    document.addEventListener("DOMContentLoaded", function(event) { 
+      document.getElementById("cbutton").disabled = true;
+    });
+    
+    ["farmId", "farmName", "farmLocation", "farmSize", "farmNumOfWorkers"].forEach(field => document.getElementById(field).addEventListener("input", validateFields13));
+
+    //No negative number id for Number of Workers
+    document.getElementById("farmNumOfWorkers").addEventListener("input", function() {
+    const value = parseInt(this.value);
+    if (value < 0 || isNaN(value)) {
+        this.value = "";
+        // or display an error message
+    }
+    });
+
+</script>
+</html>

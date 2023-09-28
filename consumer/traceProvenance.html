@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <script src="../action.js"></script>
+    <meta charset="utf-8" />
+    <title>Customer - Trace Durian</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body onload="accessToMetamask(); accessToContract().then(() => showDurianTable());">
+    <header>
+        <a href="consumerLogin.html">
+            <div id="logo_container">
+
+                <div id="logo">
+                    <img src="../image/durian_logo.png" alt="logo">
+                </div>
+
+                <div id="logo_text">DTTBA</div>
+            </div>
+        </a>
+        <nav class="navbar" id="navbar">
+            <ul>
+                <li><a href="traceProvenance.html" style="transform: scale(1.2);">Trace Durian</a></li>
+                <li><a href="rateDurian.html">Rate Durian</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="consumerAddingContainer" name="farmerFormContainer">
+
+        <div id="consumerAddingTitle">
+            <h2>Trace Durian</h2>
+        </div>
+
+        <form id="consumerAddingForm" name="consumerForm">
+
+            <div id="add_field_details">
+
+                <div class="add_field">
+                    <label for="Durian ID">Durian ID</label>
+                    <input type="text" name="name" id="consumerRateDurianID" class="cinput" autocomplete="off" required
+                        onfocus="placeholder='Enter Durian ID Here'" onblur="placeholder=''" />
+                </div>
+
+                <!-- TODO: Table For Searched Result -->
+
+                <div id="consumer_function_buttons">
+                    <div class="add_field_button add_field_button-disabled">
+                        <button type="button" value="Add" class="cbutton" id="traceDurianBtn"
+                            onclick="traceDurian()">Trace</button>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </form>
+        <div id="traceDurianTable">
+            <table id="durianTable">
+                <tr>
+                    <td>Batch ID</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Harvest Date</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Durian Type</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Weight (Kg)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Farm Name</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Farm Location</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Arrival Time at Distributor</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Distributor Name</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Arrival Time at Retailer</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Distributor Location</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Arrival Time at Distributor</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Rating</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</body>
+<script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+        document.getElementById("traceDurianBtn").disabled = true;
+    });
+    ["consumerRateDurianID"].forEach(field => document.getElementById(field).addEventListener("input", validateFields6));
+
+</script>
+
+</html>

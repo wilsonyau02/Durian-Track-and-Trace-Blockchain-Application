@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <script src="../action.js"></script>
+    <meta charset="utf-8" />
+    <title>Owner</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body onload="accessToMetamask(); accessToContract()">
+    <header>
+        <div id="logo_container">
+            <div id="logo">
+                <img src="image/durian_logo.png" alt="logo">
+            </div>
+
+            <div id="logo_text">OWNER</div>
+        </div>
+    </header>
+
+    <div id="ownerRow">
+        <div id="ownerFunctionDiv">
+            <a href="owner/addFarmer.html">
+                <img src="image/farmer.png" alt="Farmer image">
+                <div class="ownerFunctionButton">
+                    Add Farmer
+                </div>
+            </a>
+        </div>
+
+        <div id="ownerFunctionDiv">
+            <a href="owner/addDistributor.html">
+                <img src="image/distributor.png" alt="Distributor image">
+                <div class="ownerFunctionButton">
+                    Add Distributor
+                </div>
+            </a>
+        </div>
+
+        <div id="ownerFunctionDiv">
+            <a href="owner/addRetailer.html">
+                <img src="image/retailer.png" alt="Retailer image">
+                <div class="ownerFunctionButton">
+                    Add Retailer
+                </div>
+            </a>
+        </div>
+
+        <div id="ownerFunctionDiv">
+            <a href="owner/addFarm.html">
+                <img src="image/farm.png" alt="Farm image">
+                <div class="ownerFunctionButton">
+                    Add Farm
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <div id="ownerRow">
+        <div id="ownerFunctionDiv">
+            <a href="owner/deactivateUser.html">
+                <img src="image/deactivate.png" alt="Farmer image">
+                <div class="ownerFunctionButton">
+                    Deactivate User
+                </div>
+            </a>
+        </div>
+
+        <div id="ownerFunctionDiv">
+            <a href="owner/editFarm.html">
+                <img src="image/edit_farm.png" alt="Distributor image">
+                <div class="ownerFunctionButton">
+                    Edit Farm
+                </div>
+            </a>
+        </div>
+
+        <div id="ownerFunctionDiv">
+            <a href="owner/ownerRecord.html">
+                <img src="image/record.png" alt="Record image">
+                <div class="ownerFunctionButton">
+                    View Record
+                </div>
+            </a>
+        </div>
+
+        <div id="ownerFunctionDiv" style="visibility: hidden;"> </div>
+    </div>
+
+    <!-- TODO: How to terminate current account -->
+    <div id="ownerRow3">
+        <div id="logoutAccountDiv" onclick="logout()">
+            <img src="image/logout.png" alt="log out">
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
+
+<!--  hahaha-->

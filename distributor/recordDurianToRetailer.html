@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <script src="../action.js"></script>
+    <meta charset="utf-8" />
+    <title>Distributor - To Retailer</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body onload="accessToMetamask(); accessToContract().then(() => sendDurianToRetailer());">
+    <header>
+        <a href="../distributor.html">
+            <div id="logo_container">
+
+                <div id="logo">
+                    <img src="../image/durian_logo.png" alt="logo">
+                </div>
+
+                <div id="logo_text">DTTBA</div>
+            </div>
+        </a>
+        <nav class="navbar" id="navbar">
+            <ul>
+                <li><a href="recordDurianFromFarmer.html">From Farmer</a></li>
+                <li><a href="recordDurianToRetailer.html" style="transform: scale(1.2);">To Retailer</a></li>
+                <li><a href="distributorRecord.html">View Record</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="distributorAddingContainer" name="farmerFormContainer">
+
+        <div id="distributorAddingTitle">
+            <h2>Record Durian To Retailer</h2>
+        </div>
+
+        <div id="toRetailerTable"></div>
+
+
+        <form id="distributorAddingForm" name="distributorForm">
+
+            <div id="add_field_details">
+
+                
+
+                <div class="add_field">
+                    <label for="Retailer Address">Retailer Address</label>
+                    <input type="text" name="name" id="retailerAddress" class="cinput" autocomplete="off" required
+                        onfocus="placeholder='Enter Retailer Address Here'" onblur="placeholder=''" />
+                </div>
+
+                <div id="distributor_function_buttons">
+                    <div class="add_field_button add_field_button-disabled">
+                        <button type="button" value="Add" class="cbutton" id="cbutton" onclick="sendToRetailer()">Record</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    
+    
+    document.addEventListener("DOMContentLoaded", function(event) { 
+      document.getElementById("cbutton").disabled = true;
+    });
+    
+    ["retailerAddress"].forEach(field => document.getElementById(field).addEventListener("input", validateFields4));
+
+</script>
+</html>

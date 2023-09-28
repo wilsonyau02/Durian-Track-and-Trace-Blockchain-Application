@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <script src="../action.js"></script>
+    <meta charset="utf-8" />
+    <title>Distributor - From Farmer</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body onload="accessToMetamask(); accessToContract().then(() => takeDurianFromFarmer());">
+
+    <header>
+        <a href="../distributor.html">
+            <div id="logo_container">
+
+                <div id="logo">
+                    <img src="../image/durian_logo.png" alt="logo">
+                </div>
+
+                <div id="logo_text">DTTBA</div>
+            </div>
+        </a>
+        <nav class="navbar" id="navbar">
+            <ul>
+                <li><a href="recordDurianFromFarmer.html" style="transform: scale(1.2);">From Farmer</a></li>
+                <li><a href="recordDurianToRetailer.html">To Retailer</a></li>
+                <li><a href="distributorRecord.html">View Record</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="distributorAddingContainer" name="farmerFormContainer">
+
+        <div id="distributorAddingTitle">
+            <h2>Record Durian From Farmer</h2>
+        </div>
+
+        <div id="fromFarmerTable"></div>
+
+
+        <form id="distributorAddingForm" name="distributorForm">
+
+            <div id="add_field_details">
+
+
+                <div class="add_field">
+                    <label for="Receive Time">Receive Time</label>
+                    <input type="datetime-local" name="address" id="distributorReceiveDurianTime" class="cinput" autocomplete="off" required
+                        onfocus="placeholder='Enter Receiver Time Here'" onblur="placeholder=''" />
+                </div>
+
+                <div id="distributor_function_buttons">
+                    <div class="add_field_button add_field_button-disabled">
+                        <button type="button" value="Add" class="cbutton" id="cbutton"
+                            onclick="receivedFromFarmer()">Record</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        document.getElementById("cbutton").disabled = true;
+    });
+
+    [ "distributorReceiveDurianTime"].forEach(field => document.getElementById(field).addEventListener("input", validateFields));
+
+</script>
+
+</html>

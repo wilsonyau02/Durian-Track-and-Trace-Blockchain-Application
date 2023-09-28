@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <script src="../action.js"></script>
+    <meta charset="utf-8" />
+    <title>Customer - Rate Durian</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body onload="accessToMetamask(); accessToContract()">
+    <header>
+        <a href="consumerLogin.html">
+            <div id="logo_container">
+
+                <div id="logo">
+                    <img src="../image/durian_logo.png" alt="logo">
+                </div>
+
+                <div id="logo_text">DTTBA</div>
+            </div>
+        </a>
+        <nav class="navbar" id="navbar">
+            <ul>
+                <li><a href="traceProvenance.html">Trace Durian</a></li>
+                <li><a href="rateDurian.html" style="transform: scale(1.2);">Rate Durian</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="consumerAddingContainer" name="farmerFormContainer">
+
+        <div id="consumerAddingTitle">
+            <h2>Rating</h2>
+        </div>
+
+        <form id="consumerAddingForm" class="ratingForm" name="consumerForm">
+
+            <div id="add_field_details">
+
+                <div class="add_field">
+                    <label for="Durian ID">Durian ID</label>
+                    <input type="text" name="name" id="consumerRateDurianID" class="cinput" autocomplete="off" required
+                        onfocus="placeholder='Enter Durian ID Here'" onblur="placeholder=''" />
+                </div>
+
+                <div class="add_field">
+                    <label for="Taste Rate">Taste</label>
+                    <div class="radio-buttons" id="durianTasteRate">
+                        <input type="radio" name="tasteRate" id="tasteRate1" class="cinput" value="1" required>
+                        <label for="tasteRate1">1</label>
+                        <input type="radio" name="tasteRate" id="tasteRate2" class="cinput" value="2">
+                        <label for="tasteRate2">2</label>
+                        <input type="radio" name="tasteRate" id="tasteRate3" class="cinput" value="3">
+                        <label for="tasteRate3">3</label>
+                        <input type="radio" name="tasteRate" id="tasteRate4" class="cinput" value="4">
+                        <label for="tasteRate4">4</label>
+                        <input type="radio" name="tasteRate" id="tasteRate5" class="cinput" value="5">
+                        <label for="tasteRate5">5</label>
+                    </div>
+                </div>
+
+                <div class="add_field">
+                    <label for="Fragnance Rate">Fragnance</label>
+                    <div class="radio-buttons" id="durianFragnanceRate">
+                        <input type="radio" name="fragnanceRate" id="fragnanceRate1" class="cinput" value="1" required>
+                        <label for="fragnanceRate1">1</label>
+                        <input type="radio" name="fragnanceRate" id="fragnanceRate2" class="cinput" value="2">
+                        <label for="fragnanceRate2">2</label>
+                        <input type="radio" name="fragnanceRate" id="fragnanceRate3" class="cinput" value="3">
+                        <label for="fragnanceRate3">3</label>
+                        <input type="radio" name="fragnanceRate" id="fragnanceRate4" class="cinput" value="4">
+                        <label for="fragnanceRate4">4</label>
+                        <input type="radio" name="fragnanceRate" id="fragnanceRate5" class="cinput" value="5">
+                        <label for="fragnanceRate5">5</label>
+                    </div>
+                </div>
+
+                <div class="add_field">
+                    <label for="Taste Rate">Creaminess</label>
+                    <div class="radio-buttons" id="durianTasteCreaminess">
+                        <input type="radio" name="creaminessRate" id="CreaminessRate1" class="cinput" value="1"
+                            required>
+                        <label for="tasteRate1">1</label>
+                        <input type="radio" name="creaminessRate" id="CreaminessRate2" class="cinput" value="2">
+                        <label for="tasteRate2">2</label>
+                        <input type="radio" name="creaminessRate" id="CreaminessRate3" class="cinput" value="3">
+                        <label for="tasteRate3">3</label>
+                        <input type="radio" name="creaminessRate" id="CreaminessRate4" class="cinput" value="4">
+                        <label for="tasteRate4">4</label>
+                        <input type="radio" name="creaminessRate" id="CreaminessRate5" class="cinput" value="5">
+                        <label for="tasteRate5">5</label>
+                    </div>
+                </div>
+
+                <div id="consumer_function_buttons">
+                    <div class="add_field_button add_field_button-disabled">
+                        <button type="button" value="Add" class="cbutton" id="cbutton"
+                            onclick="rateDurian()">Rate</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    function getCreaminessRate() {
+        const radioButtons = document.getElementsByName("creaminessRate");
+
+        for (let i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].checked) {
+                return radioButtons[i].value;
+            }
+        }
+
+        return 0; // return null if no radio button is selected
+    }
+
+    function getFragnanceRate() {
+        const radioButtons = document.getElementsByName("fragnanceRate");
+
+        for (let i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].checked) {
+                return radioButtons[i].value;
+            }
+        }
+
+        return 0; // return null if no radio button is selected
+    }
+
+    function getTasteRate() {
+        const radioButtons = document.getElementsByName("tasteRate");
+
+        for (let i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].checked) {
+                return radioButtons[i].value;
+            }
+        }
+
+        return 0; // return null if no radio button is selected
+    }
+
+    function rateDurianValidateFields() {
+        var durianTasteRate = getTasteRate();
+        var durianFragnanceRate = getFragnanceRate();
+        var durianCreaminessRate = getCreaminessRate();
+
+        console.log(durianTasteRate, durianFragnanceRate, durianCreaminessRate);
+
+        var consumerRateDurianID = document.getElementById("consumerRateDurianID").value;
+        //   var durianTasteRate = document.getElementById("durianTasteRate").value;
+        //   var durianFragnanceRate = document.getElementById("durianFragnanceRate").value;
+        //   var durianCreaminessRate = document.getElementById("durianCreaminessRate").value;
+
+        if (consumerRateDurianID === "" || durianTasteRate === 0 || durianFragnanceRate === 0 || durianCreaminessRate === 0) {
+            document.getElementById("cbutton").disabled = true;
+        } else {
+            document.getElementById("cbutton").disabled = false;
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        document.getElementById("cbutton").disabled = true;
+    });
+
+    ["consumerRateDurianID", "durianTasteRate", "durianFragnanceRate", "durianTasteCreaminess"].forEach(field => document.getElementById(field).addEventListener("input", rateDurianValidateFields));
+
+</script>
+
+</html>
