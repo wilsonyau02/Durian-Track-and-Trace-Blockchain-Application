@@ -27,6 +27,7 @@
 
 - **[Lee Chun Kai](https://github.com/BananaKing123)**
 - **[Yap Zhe Xuan](https://github.com/yapzhexuan)**
+- **[Wilson Yau Kai Chun](https://github.com/wilsonyau02)**
 - **Chan Zhi Lin**
 
 ---
